@@ -22,11 +22,10 @@
 
     //  Una cola es una estructura de datos abstracta.
 
-    // Una cola sigue el principio FIFO/LILO.
 
     // En este desafío necesitamos implementar los métodos enqueue(), dequeue(), front(), size().isEmpty()
 
-    // enqueue()- 
+    // enqueue()- Este método para agregar elementos
     // dequeue()- Este método elimina el primer elemento de la cola.
     // front()- Este método devuelve el primer elemento de la cola que se eliminaría.
     // size()- Este método devuelve el tamaño de la cola.
@@ -54,47 +53,136 @@
 }
 
 {
-    //! Solución
+    //! Solución 1 con funcion contructora Queue (){} 
 
 
     // Escriba un método enqueue que empuje un elemento al final de la cola, un método dequeue que elimine y devuelva el elemento frontal, método un front que nos permita ver el elemento frontal, un  método size que muestre la longitud y un método isEmpty para verificar si la cola es vacío.
 
     function Queue() {
-        var collection = [];
-        this.print = function () {
-            console.log(collection);
-            console.log(this);
-        };
+        let collection = [];
+
+
         // push() grega uno o más elementos al final de una matriz 
         this.enqueue = function (item) {
             collection.push(item);
             console.log(collection);
             // return collection.push(item);
         };
+
         //El shift()método elimina el primer elemento de una matriz 
         this.dequeue = function () {
-            collection.shift();
-            console.log(collection);
+            // console.log(collection);
+            // collection.shift()
+            // console.log(collection);
+            return collection.shift();
+
             // return collection.shift();
         };
+
+        this.front = function () {
+            // El método at() recibe un valor numérico entero y devuelve el elemento en esa posición, permitiendo valores positivos y negativos. Los valores negativos contarán desde el último elemento del array.
+
+            // console.log(collection.at(0));// Metodo 2
+            // console.log(collection[0]);// Metodo 1
+            return collection.at(0);
+        };
+        this.end = function () {
+            return collection.at(collection.length-1)
+        }
+        this.size = function () {
+            // console.log(collection.length);
+            return collection.length;
+        };
+        this.isEmpty = function () {
+            // console.log(collection.length = 0);
+            // console.log(collection.length );
+
+            return collection.length = 0;
+        };
+
+        this.print = function () {
+            console.log(collection);
+            console.log(this);
+            // return this.collection
+        };
+
+
+       
+    };
+
+
+
+    let cola = new Queue();
+    cola.print();
+    console.log("---COMPRAS con funcion contructora ------");
+    cola.enqueue("leche dia lunes con funcion contructora ");
+    cola.enqueue("leche dia martes con funcion contructora ");
+    cola.enqueue("leche dia miercoles con funcion contructora ");
+    cola.enqueue("leche dia lueves con funcion contructora ");
+
+    console.log("---VENTAS con funcion contructora ------");
+    cola.dequeue();
+    // cola.dequeue()
+    // cola.dequeue()
+    // cola.dequeue()
+    console.log(cola.front());
+    console.log(cola.end());
+
+    cola.size();
+    cola.isEmpty();
+
+
+
+
+
+
+}
+
+{
+    //! Solucion 2 con una class Queue ES 2015
+    class Queue {
+        constructor() {
+            this.collection = [];
+
+        }
+
+        imprimir() {
+            return this.collection;
+        }
+
+        enqueue(data) {
+            this.collection.push(data);
+            return this.collection;
+        }
+        dequeue() {
+            this.collection.shift();
+            return this.collection;
+        }
+        size() {
+            return this.collection.length;
+        }
+
+        front() {
+            return this.collection.at(0);
+        }
+        end() {
+
+            return this.collection.at(this.collection.length - 1);
+        }
 
     };
 
     let cola = new Queue();
-    cola.print();
-    console.log("---COMPRAS------")
-    cola.enqueue("leche dia lunes ");
-    cola.enqueue("leche dia martes");
-    cola.enqueue("leche dia miercoles");
-    cola.enqueue("leche dia lueves");
-    
-    console.log("---VENTAS------")
-    cola.dequeue()
-    cola.dequeue()
-    cola.dequeue()
-    cola.dequeue()
+    console.log("---COMPRAS ( con  Clase) ------");
+    console.log(cola.enqueue("leche dia lunes  ( con  Clase) "));
+    console.log(cola.enqueue("leche dia miercoles  ( con  Clase) "));
+    console.log(cola.enqueue("leche dia viernes  ( con  Clase) "));
 
 
-
-
+    console.log(cola.dequeue());
+    // console.log(cola.dequeue());
+    console.log(cola.enqueue("leche  y diario dia domingo  ( con  Clase) "));
+    console.log(cola.size());
+    console.log(cola.front());
+    console.log(cola.end());
 }
