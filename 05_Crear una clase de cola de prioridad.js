@@ -69,7 +69,7 @@
 
     this.end = function () {
       let final = this.collection[this.collection.length - 1][0];
-       //  this.collection[this.collection.length - 1][0] es ===  this.collection[0][0]
+      //  this.collection[this.collection.length - 1][0] es ===  this.collection[0][0]
       return final;
     };
 
@@ -163,7 +163,7 @@
     this.front = () => this.collection[0][0];// muestra el primer elemento de la cola
     this.end = function () { // muestra el ultimo array en la  posisicion 0 ( arr[length-1][0])
       let final = this.collection[this.collection.length - 1][0];
-       //  this.collection[this.collection.length - 1][0] es ===  this.collection[0][0]
+      //  this.collection[this.collection.length - 1][0] es ===  this.collection[0][0]
       return final;
     };
 
@@ -171,25 +171,27 @@
 
 
 
-  //   let pq = new PriorityQueue();
-  // 
-  // pq.enqueue(['rabbit', 8]);
-  // pq.enqueue(['dog', 12]);
-  // pq.enqueue(['kitten', 6]);
-  // pq.enqueue(['human', 1]);
-  // 
-  //   console.log(pq.front());
-  //   console.log(pq.end());
-  //   console.log(pq.isEmpty());
-  //   console.log(pq.size());
-  //   pq.printCollection();
+  let pq = new PriorityQueue();
+
+  pq.enqueue(['rabbit', 8]);
+  pq.enqueue(['dog', 12]);
+  pq.enqueue(['kitten', 6]);
+  pq.enqueue(['human', 1]);
+
+  console.log(pq.front());
+  console.log(pq.end());
+  console.log(pq.isEmpty());
+  console.log(pq.size());
+  pq.printCollection();
+  
+  console.log("----")
 
 
 }
 
 
 {
-  ///! Solucion de chat 2 (PROXIMO A CORREGIR Y COMENTAR)
+  ///! Solucion 2 de chat
 
   class PriorityQueue {
     constructor() {
@@ -242,13 +244,13 @@
 
   let pq = new PriorityQueue();
 
-  pq.enqueue(['rabbit', 8]);
-  pq.enqueue(['dog', 12]);
-  pq.enqueue(['kitten', 6]);
-  pq.enqueue(['human', 1]);
+  // pq.enqueue(['rabbit', 8]);
+  // pq.enqueue(['dog', 12]);
+  // pq.enqueue(['kitten', 6]);
+  // pq.enqueue(['human', 1]);
 
-  console.log(pq.front());
-  console.log(pq.end());
+  // console.log(pq.front());
+  // console.log(pq.end());
   console.log(pq.isEmpty());
   console.log(pq.size());
   pq.printCollection();
