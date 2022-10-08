@@ -41,7 +41,7 @@
 
 
 {
-  //!Solucion1
+  //! Solucion1
 
   function PriorityQueue() {
     this.collection = [];
@@ -52,29 +52,24 @@
     // Only change code below this line
 
     this.enqueue = function (item) {
-      console.log(item);
-      console.log(this.collection);
+      // console.log(item);
+      // console.log(this.collection);
       // let index = this.collection.findIndex(elem => elem[1] > item[1]);
       let index = this.collection.findIndex((elem) => {
-        console.log(elem);
-        console.log(item);
-        return elem[1] > item[1];
+
+        return elem[1] > item[1]; // verficando los indices que representa la prioridades, del parametro de: this.collection.findIndex((elem)==>{....}  contra  el parametro de la invocacion del metodo ==>  this.enqueue = function (item){....}
+
       });
-      if (index !== -1) {
-        console.log(index);
-        console.log(item);
-        this.collection.splice(index, 0, item);
-      } else {
-        console.log(index);
-        console.log(item);
-        console.log(this.collection);
-        this.collection.push(item);
-        console.log(this.collection);
+      if (index !== -1) { // ubica los elementos en el array en orden desendente
+        this.collection.splice(index, 0, item); // agrega el elemnto al principio de la del array
+      } else { // agrega el elemento al final de la fila
+        this.collection.push(item); // es == -1 findIndex (elem) => {}  agrega el nuevo elemento al final del array 
       }
     };
 
     this.end = function () {
       let final = this.collection[this.collection.length - 1][0];
+       //  this.collection[this.collection.length - 1][0] es ===  this.collection[0][0]
       return final;
     };
 
@@ -93,33 +88,24 @@
     this.front = function () {
       return this.collection[0][0];
     };
-    // Only change code above this line
   }
 
-  /*  let pq = new PriorityQueue();
- 
-   pq.enqueue(['rabbit', 8]);
-   pq.enqueue(['dog', 6])
-   pq.enqueue(['kitten', 12]);
-   pq.enqueue(['human', 1]);
- 
- 
-   // console.log(pq.dequeue());
- 
- 
- 
-   console.log("");
-   console.log("");
-   
-   console.log("<<_this.collection_>>")
-   pq.printCollection();
-   console.log(""); 
-   console.log("---------Front------------")
-   console.log(pq.front());
-   console.log("");
-   console.log("--------End-----------")
-   console.log(pq.end());
-  */
+  //   let pq = new PriorityQueue();
+  // 
+  //   pq.enqueue(['rabbit', 8]);
+  //   pq.enqueue(['dog', 12]);
+  //   pq.enqueue(['kitten', 6]);
+  //   pq.enqueue(['human', 1]);
+  // 
+  // 
+  //   console.log(pq.front());
+  //   console.log(pq.end());
+  //   console.log(pq.isEmpty());
+  //   console.log(pq.size());
+  //   pq.printCollection();
+
+  //  console.log(pq.dequeue());
+
 
 }
 
@@ -148,7 +134,7 @@
 // isEmpty(): regresa si la cola está vacía.
 
 {
-  ///! Solucion de chat 1 corregida
+  ///! Solucion de chat 1 corregida todo dentro del constructor (metodos directos)
 
   function PriorityQueue() {
     this.collection = [];
@@ -156,82 +142,96 @@
       console.log(this.collection);
     };
 
-    this.isEmpty = () => this.collection.length === 0 ? true : false; // verifica si la cola esta vacia
+    this.isEmpty = () => this.collection.length === 0 ? true : false; // verifica si la cola esta vacia POR MEDIO DE LA PROPIEDAD LENGTH
 
     this.size = () => this.collection.length; // verifica el Tamaño de la cola
 
     this.enqueue = (arr) => {
-      if (arr[1] === 1) {
-        console.log(arr[1]);
-        console.log(this.collection[1]);
+      if (arr[1] === 1) {// si es igual a 1 su prioridad es maxima pasa a ser primero el la fila
         this.collection.unshift(arr); // Inserta nuevos elementos al comienzo de una matriz  
         // console.log(arr[0]);
-        this.collection.sort((a, b) => a[1] - b[1]);
-        console.log(console.log(this.collection));
+        this.collection.sort((a, b) => a[1] - b[1]); // ordena los elementos del array en el indixe de menor a mayor segun el indice 1 del array
         return this.collection;
-      } else {
+      } else {// si es diferente a 1 su prioridad es menor  pasa a colocarse final de la cola 
         this.collection.push(arr);  // Inserta nuevos elementos al final de una matriz
-        // console.log(arr[0]);
-        this.collection.sort((a, b) => a[1] - b[1]);
+        this.collection.sort((a, b) => a[1] - b[1]);// ordena los elementos del array en el indixe de menor a mayor segun el indice 1 del array
         return this.collection;
       }
     };
     this.dequeue = () => this.collection.shift()[0]; // elimina el primer elemento de la cola
 
     this.front = () => this.collection[0][0];// muestra el primer elemento de la cola
+    this.end = function () { // muestra el ultimo array en la  posisicion 0 ( arr[length-1][0])
+      let final = this.collection[this.collection.length - 1][0];
+       //  this.collection[this.collection.length - 1][0] es ===  this.collection[0][0]
+      return final;
+    };
+
   }
 
 
-  /*   let pq = new PriorityQueue();
-  
-    pq.enqueue(['rabbit', 8]);
-    pq.enqueue(['dog', 6]);
-    pq.enqueue(['kitten', 2]);
-    pq.enqueue(['human', 1]);
-  
-  
-    // console.log(pq.dequeue());
-  
-  
-  
-    console.log("");
-    console.log("");
-  
-    console.log("<<_this.collection_>>");
-    pq.printCollection();
-    console.log("");
-    console.log("---------Front------------");
-    console.log(pq.front());
-    console.log("");
-   */
 
-}  
+  //   let pq = new PriorityQueue();
+  // 
+  // pq.enqueue(['rabbit', 8]);
+  // pq.enqueue(['dog', 12]);
+  // pq.enqueue(['kitten', 6]);
+  // pq.enqueue(['human', 1]);
+  // 
+  //   console.log(pq.front());
+  //   console.log(pq.end());
+  //   console.log(pq.isEmpty());
+  //   console.log(pq.size());
+  //   pq.printCollection();
+
+
+}
 
 
 {
-  ///! Solucion de chat 2
+  ///! Solucion de chat 2 (PROXIMO A CORREGIR Y COMENTAR)
+
   class PriorityQueue {
     constructor() {
       this.collection = [];
     };
+
+
     printCollection() {
       console.log(this.collection);
+
     };
+
+
     enqueue(value) {
-      if (typeof value === "object" && value.length === 2 && typeof value[1] === "number") {
-        let index = 0;
-        while (this.collection[index] && this.collection[index][1] < value[1] + 1) {
-          index++;
-        }
+      if (typeof value === "object" && value.length === 2 && typeof value[1] === "number") {  // verifica si es un array(Objeto), de longitud 2, y que sea un numero
+        // console.log(value);
+        let index = 0;  // Da el valor  (0) al indice del array ==> this.collection.splice(index=0 , 0, value) luego agrega el contenido de el parametro de value en le indice (0) de this.collection.splice(0, 0, value)
         this.collection.splice(index, 0, value);
+
+        this.collection.sort((a, b) => a[1] - b[1]); // ordena los elementos del array en el indixe de menor a mayor segun el indice 1 del array
+        return this.collection;
       }
     };
+
     dequeue() {
       if (this.collection.length > 0) return this.collection.pop()[0];
     };
+
     front() {
-      return this.collection[this.collection.length - 1][0];
+      return this.collection[0][0];
     };
+
+
+
+    end() { // muestra el ultimo array en la  posisicion 0 ( arr[length-1][0])
+      let final = this.collection[this.collection.length - 1][0];
+      //  this.collection[this.collection.length - 1][0] es ===  this.collection[0][0]
+
+      return final;
+    };
+
+
     size() {
       return this.collection.length;
     };
@@ -239,29 +239,19 @@
       return this.collection.length === 0;
     };
   };
+
   let pq = new PriorityQueue();
 
   pq.enqueue(['rabbit', 8]);
-  pq.enqueue(['dog', 6]);
-  pq.enqueue(['kitten', 2]);
+  pq.enqueue(['dog', 12]);
+  pq.enqueue(['kitten', 6]);
   pq.enqueue(['human', 1]);
 
-
-  // console.log(pq.dequeue());
-
-
-
-  console.log("");
-  console.log("");
-
-  console.log("<<_this.collection_>>");
-  pq.printCollection();
-  console.log("");
-  console.log("---------Front------------");
   console.log(pq.front());
-  console.log("");
-
-  ///Muchas gracias por su ayuda... Al menos encontré el problema. De la matriz hay que eliminar el primer elemento, no el último. Cambié el método pop() y ahora paso la prueba Gracias.;
+  console.log(pq.end());
+  console.log(pq.isEmpty());
+  console.log(pq.size());
+  pq.printCollection();
 
 
 }
@@ -279,8 +269,8 @@
   ];
 
   // sort by value
-  console.log(items);
-  console.log(items.sort((a, b) => a.value - b.value));
+  // console.log(items);
+  // console.log(items.sort((a, b) => a.value - b.value));
 }
 
 
@@ -288,13 +278,13 @@
   let x = [2];
   x[0] = 1;
   x[1] = 2;
-  console.log(x); 
+  // console.log(x);
 
   let y = new Array(2);
   y[0] = "A";
   y[1] = "B";
 
 
-  console.log(y);
-  console.log(y[0][1]);
+  // console.log(y);
+  // console.log(y[0][1]);
 }
