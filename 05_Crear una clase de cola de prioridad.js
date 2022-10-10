@@ -60,7 +60,7 @@
         return elem[1] > item[1]; // verficando los indices que representa la prioridades, del parametro de: this.collection.findIndex((elem)==>{....}  contra  el parametro de la invocacion del metodo ==>  this.enqueue = function (item){....}
 
       });
-      if (index !== -1) { // ubica los elementos en el array en orden desendente
+      if (index !== -1) { // si son superiores iguales o superiores a 0, ubica los elementos en el array en orden acendente
         this.collection.splice(index, 0, item); // agrega el elemnto al principio de la del array
       } else { // agrega el elemento al final de la fila
         this.collection.push(item); // es == -1 findIndex (elem) => {}  agrega el nuevo elemento al final del array 
@@ -211,7 +211,7 @@
         let index = 0;  // Da el valor  (0) al indice del array ==> this.collection.splice(index=0 , 0, value) luego agrega el contenido de el parametro de value en le indice (0) de this.collection.splice(0, 0, value)
         this.collection.splice(index, 0, value);
 
-        this.collection.sort((a, b) => a[1] - b[1]); // ordena los elementos del array en el indixe de menor a mayor segun el indice 1 del array
+        this.collection.sort((a, b) => a[1] - b[1]); // ordena los elementos del array en el indixe de menor a mayor  del array
         return this.collection;
       }
     };
