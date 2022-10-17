@@ -35,9 +35,9 @@
 
     //! Desafio
 
-    // En este desafío implementaremos una cola circular. La cola circular debe proporcionar enqueuemétodos dequeueque le permitan leer y escribir en la cola. La clase en sí también debe aceptar un argumento de número entero que puede usar para especificar el tamaño de la cola cuando se crea. Hemos escrito la versión inicial de esta clase para usted en el editor de código.
+    /// En este desafío implementaremos una cola circular. La cola circular debe proporcionar métodos  enqueue  y dequeue que  le permitan leer y escribir en la cola. La clase en sí también debe aceptar un argumento de número entero que puede usar para especificar el tamaño de la cola cuando se crea. Hemos escrito la versión inicial de esta clase para usted en el editor de código.
 
-    // Cuando pone elementos en la cola, el puntero de escritura debe avanzar y volver al principio una vez que llega al final de la cola. El enqueuemétodo debería devolver el elemento que puso en cola si tiene éxito; de lo contrario, volverá null.
+    /// Cuando pone elementos en la cola, el puntero de escritura debe avanzar y volver al principio una vez que llega al final de la cola. El método enqueue debería devolver el elemento que puso en cola si tiene éxito; de lo contrario, volverá null.
 
     // Del mismo modo, el puntero de lectura debe avanzar a medida que quita elementos de la cola. Cuando elimina un elemento de la cola, ese elemento debe devolverse. Si no puede sacar de la cola un elemento, debe devolver null.
 
@@ -80,7 +80,7 @@
 
 {
 
-    // ! Solución
+    // ! Solución 1
 
     class CircularQueue {
         constructor(size) {
